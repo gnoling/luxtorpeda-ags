@@ -1,0 +1,11 @@
+image: luxtorpeda/steam-runtime-amd64-beta:test-1
+
+variables:
+  GIT_STRATEGY: fetch
+
+stages:
+  - test
+
+Unit Tests:
+  stage: test
+  script: gcc --version
