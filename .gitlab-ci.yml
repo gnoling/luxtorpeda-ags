@@ -1,11 +1,12 @@
 image: luxtorpeda/steam-runtime-amd64-beta:test-1
 
 variables:
-  GIT_STRATEGY: fetch
+  GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
-  - test
+  - build
 
-Unit Tests:
-  stage: test
-  script: gcc --version
+Build:
+  stage: build
+  script:
+  - ./build.sh
