@@ -6,6 +6,7 @@ variables:
 stages:
   - build
   - package
+  - publish
 
 Build:
   stage: build
@@ -22,3 +23,15 @@ Package:
     paths:
     - dist.tar.xz
     expire_in: 1 week
+
+pages:
+  stage: publish
+  script:
+  - mkdir public
+  - sed "s|%DATE%|$(date)|" index.template > public/index.html
+  - mv dist.tar.xz public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

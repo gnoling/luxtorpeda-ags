@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <title>Luxtorpeda game package</title>
+
+    <style type="text/css">
+        <!--
+        /* style goes here */
+        -->
+    </style>
+
+    <script>
+        <!--
+        /* javascript goes here */
+        -->
+    </script>
+
+</head>
+<body>
+<a href="dist.tar.xz">download</a><br/>
+%DATE%
+</body>
+</html>
