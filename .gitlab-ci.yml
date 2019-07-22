@@ -10,6 +10,10 @@ stages:
 Build:
   stage: build
   script: ./build.sh
+  artifacts:
+    paths:
+    - dist
+    expire_in: 1 day
 
 Package:
   stage: package
