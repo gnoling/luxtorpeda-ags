@@ -5,8 +5,16 @@ variables:
 
 stages:
   - build
+  - package
 
 Build:
   stage: build
-  script:
-  - ./build.sh
+  script: ./build.sh
+
+Package:
+  stage: package
+  script: ./package.sh
+  artifacts:
+    paths:
+    - dist.tar.xz
+    expire_in: 1 week
