@@ -33,7 +33,7 @@ GIT_TOPLEVEL_CMD = ['git', 'rev-parse', '--show-toplevel']
 os.chdir(subprocess.check_output(GIT_TOPLEVEL_CMD).strip())
 
 PACKAGE_NAME = query_user('package name: ', os.path.basename(os.getcwd()))
-PROJECT_URL = query_user('git project url: ', '')
+# PROJECT_URL = query_user('git project url: ', '')
 STEAM_APP_ID_LIST = query_user('steam app_ids: ', '123 456')
 
 
@@ -52,7 +52,7 @@ print('+ create env.sh')
 fill_template('bootstrap/templates/env.sh', 'env.sh')
 print('+ create .gitlab-ci.yml')
 fill_template('bootstrap/templates/gitlab-ci.yml', '.gitlab-ci.yml')
-print(f'+ git submodule add {PROJECT_URL}')
-subprocess.call(['git', 'submodule', 'add', PROJECT_URL, 'source'])
+# print(f'+ git submodule add {PROJECT_URL}')
+# subprocess.call(['git', 'submodule', 'add', PROJECT_URL, 'source'])
 print('+ git status')
 subprocess.call(['git', 'status'])
