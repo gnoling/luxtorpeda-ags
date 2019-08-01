@@ -13,7 +13,7 @@ Build:
   script: ./build.sh
   artifacts:
     paths:
-    - dist
+${ARTIFACT_DIRS}
     expire_in: 1 day
 
 Package:
@@ -21,15 +21,15 @@ Package:
   script: ./package.sh
   artifacts:
     paths:
-    - dist.tar.xz
+${ARTIFACT_TARBALLS}
     expire_in: 1 week
 
 pages:
   stage: publish
   script:
   - mkdir public
-  - sed "s|%DATE%|$(date)|" index.template > public/index.html
-  - mv dist.tar.xz public
+  - sed "s|%DATE%|$(date)|" index.html > public/index.html
+${MV_TARBALLS_TO_PUBLIC}
   artifacts:
     paths:
     - public

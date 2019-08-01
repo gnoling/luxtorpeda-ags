@@ -1,20 +1,16 @@
 #!/bin/bash
 
+source env.sh
+
 set -x
+set -e
 
-# log environment and tool versions you care about here:
-pwd
-nproc
-# git --version  # TODO add Git to Docker image
-gcc --version
-
-# record metadata
-mkdir dist
-touch dist/manifest
-# echo "version: $(git -C source describe --always)" >> dist/manifest || true
-# echo "package version: $(git describe --always)" >> dist/manifest
+log_environment
+prepare_manifest_files "$STEAM_APP_ID_LIST"
 
 # build instructions
+#
+# write build instructions here
+# place resulting binaries in directories: '<app_id>/dist'
+#
 pushd source || exit 0
-
-# place resulting binaries in directory 'dist'
