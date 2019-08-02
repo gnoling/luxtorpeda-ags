@@ -38,7 +38,7 @@ STEAM_APP_ID_LIST = query_user('steam app_ids: ', '123 456')
 
 
 DOWNLOAD_LINKS = template_list(
-        lambda a: f'<a href="{PACKAGE_NAME}-{a}.tar.xz">download ({a})</a>')
+        lambda a: f'<a href="{PACKAGE_NAME}-{a}.tar.xz">download ({a})</a><br>')
 ARTIFACT_DIRS = template_list(
         lambda a: f'    - {a}/')
 ARTIFACT_TARBALLS = template_list(
