@@ -2,3 +2,6 @@
 	path = source
 	url = https://github.com/adventuregamestudio/ags.git
 	branch = release-3.4.4
+[submodule "agsteamstub"]
+	path = agsteamstub
+	url = https://github.com/gnoling/agsteamstub.git
