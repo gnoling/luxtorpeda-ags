@@ -1,0 +1,49 @@
+image: luxtorpeda/steam-runtime-amd64-beta:lux-190802-1
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - package
+  - publish
+
+Build:
+  stage: build
+  script: ./build.sh
+  artifacts:
+    paths:
+    - 307580/
+    - 371800/
+    - 336130/
+    - 47840/
+    - 212050/
+    expire_in: 1 day
+
+Package:
+  stage: package
+  script: ./package.sh
+  artifacts:
+    paths:
+    - 307580/dist.tar.xz
+    - 371800/dist.tar.xz
+    - 336130/dist.tar.xz
+    - 47840/dist.tar.xz
+    - 212050/dist.tar.xz
+    expire_in: 1 week
+
+pages:
+  stage: publish
+  script:
+  - mkdir public
+  - sed "s|%DATE%|$(date)|" index.html > public/index.html
+  - mv 307580/dist.tar.xz public/ags-307580.tar.xz
+  - mv 371800/dist.tar.xz public/ags-371800.tar.xz
+  - mv 336130/dist.tar.xz public/ags-336130.tar.xz
+  - mv 47840/dist.tar.xz public/ags-47840.tar.xz
+  - mv 212050/dist.tar.xz public/ags-212050.tar.xz
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
