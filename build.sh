@@ -8,17 +8,12 @@ set -e
 log_environment
 prepare_manifest_files "$STEAM_APP_ID_LIST"
 
-# build instructions
-#
-# write build instructions here
-# place resulting binaries in directories: '<app_id>/dist'
-#
 pushd agsteamstub || exit 1
   cp -f ../source/Engine/plugin/agsplugin.h ./
   make
 popd || exit 1
 
-wget "https://www.adventuregamestudio.co.uk/releases/finals/AGS-3.4.1-P2/AGS.3.4.1.13.Editor.Linux.Pack.zip"
+# wget "https://www.adventuregamestudio.co.uk/releases/finals/AGS-3.4.1-P2/AGS.3.4.1.13.Editor.Linux.Pack.zip"
 unzip AGS.3.4.1.13.Editor.Linux.Pack.zip
 
 for app_id in $STEAM_APP_ID_LIST ; do
