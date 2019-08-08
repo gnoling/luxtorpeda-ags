@@ -14,7 +14,8 @@ pushd agsteamstub || exit 1
 popd || exit 1
 
 # wget "https://www.adventuregamestudio.co.uk/releases/finals/AGS-3.4.1-P2/AGS.3.4.1.13.Editor.Linux.Pack.zip"
-unzip AGS.3.4.1.13.Editor.Linux.Pack.zip
+rm -fr ./Linux
+unzip ./AGS.3.4.1.13.Editor.Linux.Pack.zip
 
 for app_id in $STEAM_APP_ID_LIST ; do
 	mkdir -p "$app_id/dist"
