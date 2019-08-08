@@ -1,4 +1,4 @@
-image: luxtorpeda/steam-runtime-amd64-beta:lux-190802-1
+image: luxtorpeda/steam-runtime-amd64-beta:lux-190808-1
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
